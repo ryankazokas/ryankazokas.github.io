@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>The blog of Matt Swanson</title>
+ <title>The blog of Ryan Kazokas</title>
  <link href="http://example.com/atom.xml" rel="self"/>
  <link href="http://example.com"/>
- <updated>2016-08-11T11:30:59-04:00</updated>
+ <updated>2016-08-11T16:39:41-04:00</updated>
  <id>http://example.com</id>
  <author>
-   <name>Matt Swanson</name>
-   <email>test@example.com</email>
+   <name>Ryan Kazokas</name>
+   <email>ryan.kazokas@gmail.com</email>
  </author>
 
  
