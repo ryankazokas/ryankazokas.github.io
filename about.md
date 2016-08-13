@@ -4,12 +4,9 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+My name is Ryan Kazokas. I live and work in the Scranton/Wilkes Barre area at TMG Health.  I specialize in java software development
+but my expertise skills have a range that extends to C#, javascript, among other languages, working in frameworks such as Spring, Hibernate, and MyBatis.
+Striving for personal and professional excellence, I spend a lot of time improving my skills to become the best person and the best professional software engineer I can be.
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new)
-
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+For my education, I obtained my bachelors degree from the Pennsylvania State University in Information Sciences and Technology. I have also received a Master's of Software Engineering
+from the Pennsylvania State University in the Summer of 2016.
