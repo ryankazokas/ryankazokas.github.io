@@ -53,9 +53,10 @@ The search bar, can then be imported into any other component.
 Overall, React is a great framework if you think of your UI as components. There are also a lot of plugins, one to note is react-router, which handles the URI changes and directs the URI to render certain components.
 
 References: 
-Check out the [ReactJS][react] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+Check out
+[ReactJS][react]
+[Udemy][udemy]
  
  [react]: https://facebook.github.io/react/
- [jekyll-gh]:   https://github.com/jekyll/jekyll
- [jekyll-talk]: https://talk.jekyllrb.com/
+ [udemy]:   https://www.udemy.com/react-redux
 
