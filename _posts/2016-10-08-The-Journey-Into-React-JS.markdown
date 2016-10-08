@@ -53,7 +53,7 @@ The search bar, can then be imported into any other component.
 Overall, React is a great framework if you think of your UI as components. There are also a lot of plugins, one to note is react-router, which handles the URI changes and directs the URI to render certain components.
 
 References: 
-[Udemy Class][udemy] - Stephen Grider's Udemy Class on React
-[React JS][react] - React JS Framework
-[ES6][ES6] - ES6
+[Udemy Class]: https://www.udemy.com/react-redux
+[React JS]: https://facebook.github.io/react/
+[ES6]: https://github.com/lukehoban/es6features
 
