@@ -78,7 +78,8 @@ The search bar, can then be imported into any other component. React will force 
 
 ## Conclusions
 ---
-Overall, It is a great framework. There are also a lot of things that play nice with react. One of the larger ones is [Redux][redux]. Redux works well with react once you understand how redux itself works.
+Overall, It is a great framework. However, react is just the "view".  Out of the box it doesn't do too much outside of rendering components and plain javascript, but 
+there are also a lot of things that play nice with react. One of the larger ones is [Redux][redux]. Redux works well with react once you understand how redux itself works.
 Another one to note is react-router, which handles the URI changes and directs the URI to render certain components. React router provides a way to configure routes to URI changes. This is ideal for SPA's
 
 References: 
