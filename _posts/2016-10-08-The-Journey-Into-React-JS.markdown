@@ -76,7 +76,7 @@ export default class App extends Component {
 
 {% endhighlight %}
 
-The search bar, can then be imported into any other component. React will force you to think as a UI as a hierarchy of components.
+The search bar, can then be imported into any other component. React will force you to think of the UI as a hierarchy of components.
 
 ## Conclusions
 ---
