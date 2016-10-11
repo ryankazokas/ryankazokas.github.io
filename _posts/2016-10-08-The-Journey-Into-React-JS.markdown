@@ -12,7 +12,7 @@ so my professional knowledge of javascript was limited to job experience from an
 was to get a grasp on vanilla javascript. So i had bought a book and started hacking away at and understanding javascript. Doing things like this was great for a while.
 It satisfied my need to make asynchronous actions, hide/show text, etc. However a few years ago I had discovered a 'dollar sign' synatax:
 
-{% highlight ruby %}
+{% highlight javascript %}
 $( document ).ready(function() {
     console.log( "Hello World!" );
 });
