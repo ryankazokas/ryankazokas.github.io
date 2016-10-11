@@ -26,9 +26,9 @@ end development for "dummies". I actually used that for quite a while, but thing
 
 ## React Framework
 ---
-As the JQuery code was piling up, I had more of a need for the sense of structure on in my front end. So I started looking to JS frameworks. I read about angualar, React, Ember, and backbone. 
+As the JQuery code was piling up, I had more of a need for the sense of structure on in my front end. So I started looking to JS frameworks. I read about angular, React, Ember, and backbone. 
 I started with angular since it seemed the closest to what I knew; plain javascript. It's what I felt comfortable with, however, without reinventing some of the wheel,
-I had to make angular work how I wante. The 2-way data-binding is great, but a little difficult to understand at first, but once yuou get the hang of things it is quite easy.
+I had to make angular work how I wanted. The 2-way data-binding is great, but a little difficult to understand at first, but once yuou get the hang of things it is quite easy.
 But it still wasn't enough structure for some reason.
 
 I was very apprehensive about [React][react], mainly for the fact that it was created by the people at facebook. I thought maybe the people who worked on JS frameworks would
@@ -50,6 +50,8 @@ class SearchBar extends Component {
     );
   }
 }
+
+export default SearchBar;
 {% endhighlight %}
 
 Which could then be used like this:
