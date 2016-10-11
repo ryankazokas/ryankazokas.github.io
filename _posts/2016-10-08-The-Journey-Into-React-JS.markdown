@@ -4,6 +4,8 @@ title:  "The Journey into React JS"
 date:   2016-10-08 23:16:24 -0400
 categories: javascript react
 ---
+
+## React Framework
 Like most software developers, front end engineering is lacking in academia,(whether it be lack of knowledge by professors or by universities afraid to add it as part of the cirriculum)
 so my professional knowledge of javascript was limited to job experience from an internship. A goal of mine
 was to get a grasp on vanilla javascript. So i had bought a book and started hacking away at and understanding javascript. Doing things like this was great for a while.
@@ -31,8 +33,8 @@ better understand how a UI would/should work. I was very wrong with this assumpt
 a little with extjs, but since it's propietary, it was out for my personal projects since it seems geared more toward medium/enterprise business scale. However, I admired the way
 extjs carried itself as far as gearing itself towards pre built components.
 
-After doing some research I finally decided to buy a Udemy class on React(all credit goes to Stephen Grider) and dive right in. I immediately fell in love with it. I found my framework to be structured,
-yet complete enough to not have to reinvent anything, especially ES6. React is Component based, and the udemy class provided a way of thinking about things as different components.
+After doing some research I finally decided to buy a Udemy class on React(all credit goes to Stephen Grider) and dive right in. I immediately fell in love with it. I found the framework to be structured,
+yet complete enough to not have to reinvent anything, especially with ES6. React is Component based, and it makes things simpler when it comes to constructing UI's.
 
 For example:
 {% highlight ruby %}
@@ -45,12 +47,34 @@ class SearchBar extends Component {
     );
   }
 }
+{% endhighlight %}
+
+Which could then be used like this:
+
+{% highlight ruby %}
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+
+  render() {
+
+
+    return (
+      <div>
+          <Sidebar />
+      </div>
+    );
+  }
+}
 
 {% endhighlight %}
 
-The search bar, can then be imported into any other component.
+The search bar, can then be imported into any other component. React will force you to think as a UI as a hierarchy of components.
 
-Overall, React is a great framework if you think of your UI as components. There are also a lot of plugins, one to note is react-router, which handles the URI changes and directs the URI to render certain components.
+Overall, It is a great framework. There are also a lot of things that play nice with react. One of the larger ones is Redux. Redux works well with react once you understand howthe predictable state container framework works with it.
+Another one to note is react-router, which handles the URI changes and directs the URI to render certain components. React router makes provides a way to configure routes to URI changes.
 
 References: 
 Check out
