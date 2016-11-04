@@ -15,8 +15,12 @@ The feeling of getting into a graduate school program was thrilling.   The sens
 
 **What I learned**
 
-When our actual classes started up, we jumped right into it. Requirements engineering was my first course. Needless to say, it didn't sound very interesting. Why do I have to know requirements? The business owners should know that. This was my first lesson. User stories, scrum, and other methodologies were taught in the course. It wasn't the technical lessons that caused me to have a revelation, but the consideration for any and all parts of software development. It showed me how to pay attention to detail. I realized how much forethought had to go into xddxaawdeeeeeeeeeeeewxaddaaaaawzawzaw
+When our actual classes started up, we jumped right into it. Requirements engineering was my first course. Needless to say, it didn't sound very interesting. Why do I have to know requirements? The business owners should know that. This was my first lesson. User stories, scrum, and other methodologies were taught in the course. It wasn't the technical lessons that caused me to have a revelation, but the consideration for any and all parts of software development. It showed me how to pay attention to detail. I realized how much forethought had to go into software outside of just coding. Throughout the program I learned about various software processes, and how they are applicable to industry. The most important thing I took from it was the attention to detail and the appreciation for design, architecting, and constructing systems.
 
 **Worth It?**
 
+There will always be that argument that industry experience will trump academia. However, when I received the offer from my current job I absolutely think that showed my current employer that I was willing to learn and go the extra mile to know what I need to know. Over time I think the degree will lose some of it's value just because of the fact that industry experience is more important as you climb the ladder.(No matter what position/field you are in). As a personal achievement, it was 100% worth it. Having that foundation of knowledge to base my actual work on is fantastic. It helps me if not on an daily basis, a weekly basis. I am always using and applying what I learned from the program in my day to day work.  Overall, even with the stress that comes with working 8 hours, driving 2 hours every day, and coming home to do 3 hours of homework every night, I would do it again. I met some great knowledgeable people and made lifetime connections.
+
 **Sources:**
+
+[http://www.worldcampus.psu.edu/degrees-and-certificates/software-engineering-masters/overview](http://www.worldcampus.psu.edu/degrees-and-certificates/software-engineering-masters/overview)
