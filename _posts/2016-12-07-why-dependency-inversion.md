@@ -81,3 +81,15 @@ public class Application{
 **Benefits**: Since the dependency is set at the creation of the object, you only have to worry about defining it once, and it will not change.
 
 **Disadvantages**: The dependency is forced during the creation of the object and the object can't work without providing an implementation for the dependency.
+
+## DI Frameworks
+
+Using frameworks can make it a little easier to abide by the dependency inversion principle. In past experiences I have used spring and guice. Spring loads all of your dependencies into the "ApplicationContext". This makes it so that you don't have to instantiate any of your dependencies in calling code, but in configuration files or classes. Here is a list of a few other DI frameworks:  
+
+*   [Spring](https://projects.spring.io/spring-framework/)  
+
+*   [Guice](https://github.com/google/guice/wiki/Motivation)
+*   [HK2](https://hk2.java.net/2.5.0-b30/)
+*   [Spring.NET](http://springframework.net/)
+*   [CastleWindor](http://www.castleproject.org/projects/windsor/)
+*   [Spring Python](http://springpython.webfactional.com/)
