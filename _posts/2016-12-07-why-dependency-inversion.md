@@ -1,6 +1,6 @@
 ---
 title: Why Use Dependency Inversion?
-date: '2016-12-01 22:52:06'
+date: '2016-12-01 00:00:00'
 layout: page
 ---
 ## Dependency Inversion Principle
@@ -27,22 +27,23 @@ There are two main types of ways to use the dependency inject: setter injection 
 
 {% highlight java %}
 
-public class Client{
-	private UserService userService;
-	
-	//use the setter when setting the dependency
-	public void setService(UserService userService) {
-		this.userService = userService;
-	}
+public class Client{ private UserService userService;
+
+    //use the setter when setting the dependency
+    public void setService(UserService userService) {
+    	this.userService = userService;
+    }
+
 }
 
 public class Application{
-	
-	public void main(String[] args){
-		Client client = new Client();
-		client.setService(new UserServiceImpl());
-		
-	}
+
+    public void main(String[] args){
+    	Client client = new Client();
+    	client.setService(new UserServiceImpl());
+
+    }
+
 }
 
 {% endhighlight %}
@@ -51,27 +52,28 @@ public class Application{
 
 **Disadvantages:** Since the setter can be called at anytime, it is harder to differentiate if the dependency was changed during the life-cycle of the object.
 
----
+* * *
 
 **Constructor Injection**: The dependency is provided to the setter of the dependent implementation.
 
 {% highlight java %}
 
-public class Client{
-	private UserService userService;
-	
-	//use the constructor when setting the dependency
-	public Client(UserService userService) {
-		this.userService = userService;
-	}
+public class Client{ private UserService userService;
+
+    //use the constructor when setting the dependency
+    public Client(UserService userService) {
+    	this.userService = userService;
+    }
+
 }
 
 public class Application{
-	
-	public void main(String[] args){
-		Client client = new Client(new UserServiceImpl());
-		
-	}
+
+    public void main(String[] args){
+    	Client client = new Client(new UserServiceImpl());
+
+    }
+
 }
 
 {% endhighlight %}
@@ -79,5 +81,3 @@ public class Application{
 **Benefits**: Since the dependency is set at the creation of the object, you only have to worry about defining it once, and it will not change.
 
 **Disadvantages**: The dependency is forced during the creation of the object and the object can't work without providing an implementation for the dependency.
-
-https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
