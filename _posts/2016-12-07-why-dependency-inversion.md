@@ -5,9 +5,9 @@ layout: page
 ---
 ## Dependency Inversion Principle
 
-The design step is integral to the development of well-developed software. Without having a good design plan, down the line software can become very coupled, rigid, and very hard to expand. Nobody wants to be the person working on a system where change preventers run rampant and changing/adding a small feature can become a nightmare very quickly.  However, we all have been guilty of jumping the gun where we jump right into coding(myself included).
+The design step is integral to the development of well-developed software. Without having a good design plan, down the line software can become very coupled, rigid, and very hard to expand. Nobody wants to be the person working on a system where [change preventers](https://sourcemaking.com/refactoring/smells/change-preventers) run rampant and changing/adding a small feature can become a nightmare very quickly.  However, we all have been guilty of jumping the gun where we jump right into coding(myself included).
 
-Now that we established that good design is important, what should be considered when planning software? The SOLID design principles are a great foundation for designing maintainable/extendable software. The D in solid, stands for Dependency Inversion Principle. This is also known as inversion of control, IOC, or the most popular, dependency injection. The principle relies primarily on the notion:
+Now that we established that good design is important, what should be considered when planning software? The [SOLID design principles](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)) are a great foundation for designing maintainable/extendable software. The D in solid, stands for Dependency Inversion Principle. This is also known as inversion of control, IOC, or the most popular, dependency injection. The principle relies primarily on the notion:
 
 > Depend upon Abstractions. Do not depend upon concretions
 
