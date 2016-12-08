@@ -30,6 +30,7 @@ There are two main types of ways to use the dependency inject: setter injection 
 **Disadvantages:** Since the setter can be called at anytime, it is harder to differentiate if the dependency was changed during the life-cycle of the object.
 
 {% highlight java %}
+
 public class Client{
 	private UserService userService;
 	
@@ -47,6 +48,7 @@ public class Application{
 		
 	}
 }
+
 {% endhighlight %}
 
 ---
