@@ -1,7 +1,7 @@
 ---
 title: Why Use Dependency Inversion?
 date: '2016-12-01 22:52:06'
-layout: 
+layout: post
 ---
 ## Dependency Inversion Principle
 
