@@ -29,6 +29,26 @@ There are two main types of ways to use the dependency inject: setter injection 
 
 **Disadvantages:** Since the setter can be called at anytime, it is harder to differentiate if the dependency was changed during the life-cycle of the object.
 
+{% highlight java %}
+public class Client{
+	private UserService userService;
+	
+	//use the setter when setting the dependency
+	public void setService(UserService userService) {
+		this.service = service;
+	}
+}
+
+public class Application{
+	
+	public void main(String[] args){
+		Client client = new Client();
+		client.setService(new UserServiceImpl());
+		
+	}
+}
+{% endhighlight %}
+
 ---
 
 **Constructor Injection**: The dependency is provided to the setter of the dependent implementation.
