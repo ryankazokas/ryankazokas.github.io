@@ -11,4 +11,5 @@ Striving for personal and professional excellence, I spend a lot of time improvi
 For my education, I obtained my bachelors degree from the Pennsylvania State University in Information Sciences and Technology. I have also received a Master's of Software Engineering
 from the Pennsylvania State University in the Summer of 2016.
 
-I have a wife and a daughter. Expecting a son in december 2016, I am more than thrilled to be part of all of their lives. They are the most important things in my life and always will be.(Software is a close second!) 
+I have a wife(Sam), daughter(Auden), and a new born son(Cooper) as of December 2016. I am more than thrilled to be part of all of their lives. 
+They are the most important things in my life and always will be.(Software is a close second!) 
