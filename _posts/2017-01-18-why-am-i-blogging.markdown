@@ -15,4 +15,4 @@ The inspiration came from an article I read from codinghorror's website:
 [
 Fear of writing](https://blog.codinghorror.com/fear-of-writing/)
 
-CodingHorror is run by one of the most influential entrepeneurs in the software community Jeff Atwood. Atwood is the creator of Stack Overflow and Discord products.
+CodingHorror is run by one of the most influential entrepreneurs in the software community, Jeff Atwood. Atwood is the creator of Stack Overflow and Discord products, and my favorite blog to follow.
