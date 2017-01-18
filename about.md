@@ -1,7 +1,7 @@
 ---
-layout: page
 title: About
-permalink: /about/
+permalink: "/about/"
+layout: page
 ---
 
 My name is Ryan Kazokas. I live and work in the Scranton/Wilkes Barre area at TMG Health.  I specialize in java software development

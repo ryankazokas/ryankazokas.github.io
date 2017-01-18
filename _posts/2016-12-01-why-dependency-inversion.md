@@ -1,8 +1,9 @@
 ---
 title: Why Use Dependency Inversion?
-date: '2016-12-01 00:00:00'
+date: 2016-12-01 00:00:00 Z
 layout: page
 ---
+
 ## Dependency Inversion Principle
 
 The design step is integral to the development of well-developed software. Without having a good design plan, down the line software can become very coupled, rigid, and very hard to expand. Nobody wants to be the person working on a system where [change preventers](https://sourcemaking.com/refactoring/smells/change-preventers) run rampant and changing/adding a small feature can become a nightmare very quickly.  However, we all have been guilty of jumping the gun where we jump right into coding(myself included).

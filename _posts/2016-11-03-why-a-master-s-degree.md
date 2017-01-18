@@ -1,8 +1,9 @@
 ---
 title: Reflecting on a Software Engineering Master's Degree
-date: '2016-11-03 21:31:00'
+date: 2016-11-03 21:31:00 Z
 layout: post
 ---
+
 **The Decision**
 
 The age old question of whether or not one should advance on to graduate school and if it is worth the time/money will always be subjective. It depends on the context of the situation that the person is in. There are a slew of questions to ask oneself when considering graduate school.  Working a job as a front end developer, doing mostly graphic design, I found myself at a job that wasn't fulfilling my aspirations of becoming a full stack developer.  My decision to go  to graduate school stemmed from my desire to be more technically knowledgeable. The decision came about when talking to my wife(then girlfriend at the time) at a small diner over breakfast. Discussing issues at my current job and how I wasn't 100% happy, I mentioned that I was considering it, and she persuaded me that it would open me up for other opportunities. I couldn't thank her for being more right. My mind was set, I was going to go for my masters degree in software engineering.
