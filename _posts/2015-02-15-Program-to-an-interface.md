@@ -1,8 +1,9 @@
 ---
-layout: post
 title: Programming to an Interface
+date: 2015-02-15 00:00:00 Z
 categories:
 - Software_Patterns
+layout: post
 ---
 
 > Program to an interface, not an implementation!

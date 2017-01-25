@@ -1,8 +1,9 @@
 ---
-layout: post
 title: Object Oriented Software Development
+date: 2015-02-19 00:00:00 Z
 categories:
 - Software
+layout: post
 ---
 
 <p>Understanding software can be the largest difficulty in our profession, but if code is written well, whoever is working on it should have an easy time expanding upon the foundation.  Procedural style code can look daunting if it is long, and can be very hard to decipher what is going on in the code.  In short spurts procedural code is a lot easier to understand because of the linear pattern of implementations.  Your code says do this, and the code does it.  This is great for scripts that only have a few lines, but what about long pieces of code?</p>
