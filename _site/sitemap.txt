@@ -11,11 +11,13 @@
 /css/main.css
 /pages.html
 /projects/
+/resume/
 /rss.xml
 /site.json
 /sitemap.txt
 /tags.html
 
+/organization/2017/02/01/Organization-Management-with-Trello.html
 /meta/2017/01/18/why-am-i-blogging.html
 /software/2016/12/01/why-dependency-inversion.html
 /software_education/2016/11/03/why-a-master-s-degree.html
