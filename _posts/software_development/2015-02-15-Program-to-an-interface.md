@@ -1,11 +1,11 @@
 ---
 title: Programming to an Interface
-tags : [Software, tutorial]
+date: 2015-02-15 00:00:00 Z
 categories:
 - Software
 date: 2015-02-15 00:00:00 Z
+tags: [Software]
 layout: post
-
 ---
 
 > Program to an interface, not an implementation!

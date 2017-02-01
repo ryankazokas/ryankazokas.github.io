@@ -1,9 +1,11 @@
 ---
 title: Object Oriented Software Development
-tags : [Software, tutorial]
 date: 2015-02-19 00:00:00 Z
 categories:
 - Software
+tags:
+- Software
+- tutorial
 layout: post
 ---
 
