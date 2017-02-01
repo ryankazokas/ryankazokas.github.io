@@ -3,6 +3,7 @@ layout: page
 title: Blog
 tagline: Supporting tagline
 ---
+
 {% include JB/setup %}
 
 <ul class="posts">
