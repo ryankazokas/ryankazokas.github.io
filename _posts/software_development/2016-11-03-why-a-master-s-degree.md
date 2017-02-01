@@ -1,9 +1,9 @@
 ---
 title: Reflecting on a Software Engineering Master's Degree
 date: 2016-11-03 21:31:00 Z
-layout: post
 categories:
 - Software_education
+layout: post
 ---
 
 **The Decision**

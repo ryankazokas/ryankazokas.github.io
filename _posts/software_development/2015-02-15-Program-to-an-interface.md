@@ -3,8 +3,8 @@ title: Programming to an Interface
 date: 2015-02-15 00:00:00 Z
 categories:
 - Software
-date: 2015-02-15 00:00:00 Z
-tags: [Software]
+tags:
+- Software
 layout: post
 ---
 
