@@ -1,10 +1,12 @@
 ---
 title: Why Use Dependency Inversion?
 date: 2016-12-01 00:00:00 Z
-layout: page
-tags : [Software, SOLID Design]
 categories:
 - Software
+tags:
+- Software
+- SOLID Design
+layout: page
 ---
 
 ## Dependency Inversion Principle
