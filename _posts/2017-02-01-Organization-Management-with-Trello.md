@@ -1,8 +1,9 @@
 ---
-layout: post
 title: Organization with Trello
+date: 2017-02-01 00:00:00 Z
 categories:
 - Organization
+layout: post
 ---
 
 In the past, I have tried many tools to keep organized. To list some I've tried keeping small memo pads, whiteboards, software like todoist and Google tasks (all great tools), but I couldn't stick with any of them. The problem seemed to stem from one day of not using whatever flavor of organization tool I was stuck on at the time. Neglect would snowball and before I realized, the task list was old and outdated. It was very frustrating because it left me unorganized and forgetting things I had to do.
