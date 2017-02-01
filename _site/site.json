@@ -8,7 +8,7 @@
 
 {"date": "Thu, 01 Dec 2016 00:00:00 +0000",
 "categories": [],
-"tags": [],
+"tags": ["Software","SOLID Design"],
 "title": "Why Use Dependency Inversion?",
 "url": "/2016/12/01/why-dependency-inversion.html"},
 
@@ -20,20 +20,26 @@
 
 {"date": "Sat, 08 Oct 2016 00:00:00 +0000",
 "categories": [],
-"tags": [],
+"tags": ["Software","javascript","ReactJS"],
 "title": "The Journey Into React Js",
 "url": "/2016/10/08/The-Journey-Into-React-JS.html"},
 
 {"date": "Thu, 19 Feb 2015 00:00:00 +0000",
 "categories": ["Software"],
-"tags": [],
+"tags": ["Software","tutorial"],
 "title": "Object Oriented Software Development",
 "url": "/software/2015/02/19/Object-Oriented-Programming.html"},
 
 {"date": "Sun, 15 Feb 2015 00:00:00 +0000",
-"categories": ["Software Patterns"],
-"tags": ["intro","beginner","jekyll","tutorial"],
+"categories": ["Software"],
+"tags": ["Software","tutorial"],
 "title": "Programming to an Interface",
-"url": "/software%20patterns/2015/02/15/Program-to-an-interface.html"},
+"url": "/software/2015/02/15/Program-to-an-interface.html"},
+
+{"date": "Thu, 29 Dec 2011 00:00:00 +0000",
+"categories": ["lessons"],
+"tags": ["intro","beginner","jekyll","tutorial"],
+"title": "Jekyll Introduction",
+"url": "/lessons/2011/12/29/jekyll-introduction.html"},
 
 false]

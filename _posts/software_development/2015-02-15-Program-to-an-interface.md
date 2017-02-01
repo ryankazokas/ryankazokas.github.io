@@ -2,7 +2,7 @@
 title: Programming to an Interface
 tags : [Software, tutorial]
 categories:
-- Software Patterns
+- Software
 date: 2015-02-15 00:00:00 Z
 layout: post
 

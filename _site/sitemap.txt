@@ -21,4 +21,5 @@
 /2016/11/03/why-a-master-s-degree.html
 /2016/10/08/The-Journey-Into-React-JS.html
 /software/2015/02/19/Object-Oriented-Programming.html
-/software%20patterns/2015/02/15/Program-to-an-interface.html
+/software/2015/02/15/Program-to-an-interface.html
+/lessons/2011/12/29/jekyll-introduction.html

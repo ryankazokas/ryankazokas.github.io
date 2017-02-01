@@ -9,7 +9,7 @@
   <title>Ryan Kazokas - Programming to an Interface</title>
   <meta name="author" content="Ryan Kazokas" />
   <meta name="description" content="The blog of Ryan Kazokas" />
-  <link rel="canonical" href="https://ryankazokas.github.io/software_patterns/2015/02/15/Program-to-an-interface.html" />
+  <link rel="canonical" href="https://ryankazokas.github.io/software/2015/02/15/Program-to-an-interface.html" />
 
   <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon.png">
@@ -133,7 +133,7 @@ An interface is a binding contract between a classes and that interface.  Simila
 
 <span class="kd">class</span> <span class="nc">Pizza</span> <span class="kd">implements</span> <span class="n">IEatable</span><span class="o">{</span>
 	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="o">(){</span>
-		<span class="c1">//DO Pizza eating stuff. </span>
+		<span class="c1">//DO Pizza eating stuff.</span>
 	<span class="o">}</span>
 <span class="o">}</span>
 
@@ -149,17 +149,17 @@ An interface is a binding contract between a classes and that interface.  Simila
 	<span class="kp">public</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="no">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">){</span>
 		<span class="no">IEatable</span> <span class="n">pizza</span> <span class="o">=</span> <span class="kp">new</span> <span class="no">Pizza</span><span class="p">();</span>
 		<span class="no">IEatable</span> <span class="n">sandwich</span> <span class="o">=</span> <span class="kp">new</span> <span class="no">Sandwich</span><span class="p">();</span>
-		
+
 		<span class="no">IEatable</span> <span class="p">[]</span> <span class="n">foodList</span> <span class="o">=</span> <span class="p">[</span><span class="n">pizza</span><span class="p">,</span> <span class="n">sandwich</span><span class="p">]</span>
 		<span class="n">eatDinner</span><span class="p">(</span><span class="n">foodlist</span><span class="p">);</span>
 	<span class="p">}</span>
-	
+
 	<span class="kp">public</span> <span class="n">void</span> <span class="n">eatDinner</span><span class="p">(</span><span class="no">IEatable</span><span class="p">[]</span> <span class="n">foodList</span><span class="p">){</span>
 
 		<span class="k">for</span> <span class="p">(</span><span class="no">IEatable</span> <span class="n">food</span> <span class="p">:</span> <span class="n">foodList</span><span class="p">)</span> <span class="p">{</span>
 			<span class="n">food</span><span class="p">.</span><span class="nf">eat</span><span class="p">();</span>
 		<span class="p">}</span>
-		
+
 	<span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
