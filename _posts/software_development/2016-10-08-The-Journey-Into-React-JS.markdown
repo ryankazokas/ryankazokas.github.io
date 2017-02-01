@@ -1,10 +1,10 @@
 ---
 title: The Journey Into React Js
 date: 2016-10-08 00:00:00 Z
-tags:
+tags : [Software, javascript, ReactJS]
+categories:
 - Software
-- javascript
-- ReactJS
+layout: post
 ---
 
 ----

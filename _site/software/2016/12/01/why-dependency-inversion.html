@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ryan Kazokas - Why Use Dependency Inversion?</title>
+  <meta name="author" content="Ryan Kazokas" />
+  <meta name="description" content="The blog of Ryan Kazokas" />
+  <link rel="canonical" href="https://ryankazokas.github.io/software/2016/12/01/why-dependency-inversion.html" />
+
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Ryan Kazokas" href="https://ryankazokas.github.io/atom.xml" />
+
+  <link rel="stylesheet" href="/assets/css/all.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-k2/8zcNbxVIh5mnQ52A0r3a6jAgMGxFJFE2707UxGCk= sha512-ZV9KawG2Legkwp3nAlxLIVFudTauWuBpC10uEafMHYL0Sarrz5A7G79kXh5+5+woxQ5HM559XX2UZjMJ36Wplg==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="col-md-2">
+      <nav>
+  <!--<a href="/">
+    
+    <img src="/ryankazokas.jpg" id="logo" style="max-width:70%;" alt="Ryan Kazokas | Software Developer"/>
+    
+  </a>-->
+  <h3><a href="/about">Ryan Kazokas</a></h3>
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <!--
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="/">Blog Posts</a>
+                </li>
+                <li>
+                    <a href="/projects">Projects</a>
+                </li>
+                <li>
+                    <a href="/about">About</a>
+                </li>
+            </ul> -->
+            <ul class="nav nav-sidebar">
+              <li class="active"><a href="/"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Blog Posts<span class="sr-only">(current)</span></a></li>
+              <li><a href="/projects"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Projects</a></li>
+              <li><a href="/about"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> About</a></li>
+            </ul>
+        </div>
+        <hr />
+        <!-- /#sidebar-wrapper -->
+  <div id="social">
+    Follow me:
+<div id="stalker">
+  
+  <a title="ryankazokas on Github" href="https://github.com/ryankazokas">
+    <i class="fa fa-github-square"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+  <a title="Ryan Kazokas on Stack Overflow" href="http://stackoverflow.com/users/2850171">
+    <i class="fa fa-stack-overflow"></i>
+  </a>
+  
+
+  
+  <a title="ryankazokas on Twitter" href="https://twitter.com/ryankazokas">
+    <i class="fa fa-twitter-square"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+  <a title="Ryan Kazokas on LinkedIn" href="https://www.linkedin.com/in/ryankazokas">
+    <i class="fa fa-linkedin-square"></i>
+  </a>
+  
+
+  
+  <a title="Ryan Kazokas on Google Plus" href="https://plus.google.com/+RyanKazokas">
+    <i class="fa fa-google-plus-square"></i>
+  </a>
+  
+
+  
+
+  
+  <a title="Atom feed" id="atom" href="/atom.xml">
+    <i class="fa fa-rss-square"></i>
+  </a>
+  
+</div>
+
+  </div>
+</nav>
+
+    </div>
+
+    <div class="col-md-10">
+      <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Why Use Dependency Inversion?</h1>
+  </header>
+
+  <div class="post-content">
+    <h2 id="dependency-inversion-principle">Dependency Inversion Principle</h2>
+
+<p>The design step is integral to the development of well-developed software. Without having a good design plan, down the line software can become very coupled, rigid, and very hard to expand. Nobody wants to be the person working on a system where <a href="https://sourcemaking.com/refactoring/smells/change-preventers">change preventers</a> run rampant and changing/adding a small feature can become a nightmare very quickly.  However, we all have been guilty of jumping the gun where we jump right into coding(myself included).</p>
+
+<p>Now that we established that good design is important, what should be considered when planning software? The <a href="https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)">SOLID design principles</a> are a great foundation for designing maintainable/extendable software. The D in solid, stands for Dependency Inversion Principle. This is also known as inversion of control, IOC, or the most popular, dependency injection. The principle relies primarily on the notion:</p>
+
+<blockquote>
+  <p>Depend upon Abstractions. Do not depend upon concretions</p>
+</blockquote>
+
+<p>This means that, if we use abstractions in our code base, we should depend on those, rather than the implementations of that class, so that you can write a new implementation and just plug it in where you need it. High level policy, shouldn’t depend on low level detail and vice versa. They should both depend on abstractions.  Understanding this, helped me to know when to create abstractions as well as designing loosely coupled dependency.</p>
+
+<p>The example below illustrates the dependency inversion principle in practice:</p>
+
+<p><img src="/forestryio/images/DI_user_service.jpg" alt="/forestryio/images/DI_user_service.jpg" style="float: none;" /></p>
+
+<p>The client code depends on the high level abstraction UserService interface. The calling code can use whatever interface implements the UserService.  The same goes for the UserServiceImpl class depending upon the UserDao abstraction. What benefits does this provide? The calling code doesn’t need to be changed since it depends on the implementer of the abstraction and not on the concretion. Down the road, this helps against anti-patterns such as change preventers because we would only have to change the current implementation or create a new one. An example would be if we had to write a new UserDao for a different DBMS.(Say you store some data in a relational database, and you store other data in a NoSQL database)</p>
+
+<h2 id="types-of-dependency-injection">Types of Dependency Injection</h2>
+
+<p>There are two main types of ways to use the dependency inject: setter injection or constructor injection.</p>
+
+<p><strong>Setter Injection:</strong> The dependency is provided to the setter of the dependent implementation.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Client</span><span class="o">{</span> <span class="kd">private</span> <span class="n">UserService</span> <span class="n">userService</span><span class="o">;</span>
+
+    <span class="c1">//use the setter when setting the dependency</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setService</span><span class="o">(</span><span class="n">UserService</span> <span class="n">userService</span><span class="o">)</span> <span class="o">{</span>
+    	<span class="k">this</span><span class="o">.</span><span class="na">userService</span> <span class="o">=</span> <span class="n">userService</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Application</span><span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    	<span class="n">Client</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Client</span><span class="o">();</span>
+    	<span class="n">client</span><span class="o">.</span><span class="na">setService</span><span class="o">(</span><span class="k">new</span> <span class="n">UserServiceImpl</span><span class="o">());</span>
+
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p><strong>Benefits:</strong> Setters can be called at any time. This provides a flexible solution if you want to be able to change the implementation based on conditional statements. This is good for optional dependencies that may not need to be defined.</p>
+
+<p><strong>Disadvantages:</strong> Since the setter can be called at anytime, it is harder to differentiate if the dependency was changed during the life-cycle of the object.</p>
+
+<hr />
+
+<p><strong>Constructor Injection</strong>: The dependency is provided to the setter of the dependent implementation.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Client</span><span class="o">{</span> <span class="kd">private</span> <span class="n">UserService</span> <span class="n">userService</span><span class="o">;</span>
+
+    <span class="c1">//use the constructor when setting the dependency</span>
+    <span class="kd">public</span> <span class="nf">Client</span><span class="o">(</span><span class="n">UserService</span> <span class="n">userService</span><span class="o">)</span> <span class="o">{</span>
+    	<span class="k">this</span><span class="o">.</span><span class="na">userService</span> <span class="o">=</span> <span class="n">userService</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Application</span><span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    	<span class="n">Client</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Client</span><span class="o">(</span><span class="k">new</span> <span class="n">UserServiceImpl</span><span class="o">());</span>
+
+    <span class="o">}</span>
+
+<span class="o">}</span></code></pre></figure>
+
+<p><strong>Benefits</strong>: Since the dependency is set at the creation of the object, you only have to worry about defining it once, and it will not change.</p>
+
+<p><strong>Disadvantages</strong>: The dependency is forced during the creation of the object and the object can’t work without providing an implementation for the dependency.</p>
+
+<h2 id="di-frameworks">DI Frameworks</h2>
+
+<p>Using frameworks can make it a little easier to abide by the dependency inversion principle. In past experiences I have used spring and guice. Spring loads all of your dependencies into the “ApplicationContext”. This makes it so that you don’t have to instantiate any of your dependencies in calling code, but in configuration files or classes. Here is a list of a few other DI frameworks:</p>
+
+<ul>
+  <li>
+    <p><a href="https://projects.spring.io/spring-framework/">Spring</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/google/guice/wiki/Motivation">Guice</a></p>
+  </li>
+  <li>
+    <p><a href="https://hk2.java.net/2.5.0-b30/">HK2</a></p>
+  </li>
+  <li>
+    <p><a href="http://springframework.net/">Spring.NET</a></p>
+  </li>
+  <li>
+    <p><a href="http://www.castleproject.org/projects/windsor/">CastleWindsor</a></p>
+  </li>
+  <li>
+    <p><a href="http://springpython.webfactional.com/">Spring Python</a></p>
+  </li>
+</ul>
+
+  </div>
+
+</article>
+
+
+      <div class="footer">
+        <div class="disclaimer">
+  
+  <p>
+    The postings on this site are my own and don't necessarily represent my 
+    employer’s positions, strategies or opinions.
+  </p>
+  
+
+  <p>
+    © Ryan Kazokas, 2016 &mdash; built with <a href="http://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/swanson/lagom">Lagom theme</a>
+  </p>
+</div>
+      </div>
+    </div>
+  </div>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-82388702-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
