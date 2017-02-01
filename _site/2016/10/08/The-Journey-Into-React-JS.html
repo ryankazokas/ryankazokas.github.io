@@ -1,0 +1,90 @@
+<hr />
+<p>-layout: post
+ -title:  “The Journey into React JS”
+ -date:   2016-10-08 23:16:24 -0400
+ -categories: javascript react
+ —-
+ -
+ -## Early Javascript
+ —-
+ Like most software developers, front end engineering is lacking in academia,(whether it be lack of knowledge by professors or by universities afraid to add it as part of the cirriculum)
+ so my professional knowledge of javascript was limited to job experience from an internship. A goal of mine
+ was to get a grasp on vanilla javascript. So i had bought a book and started hacking away at and understanding javascript. Doing things like this was great for a while.
+ It satisfied my need to make asynchronous actions, hide/show text, etc. However a few years ago I had discovered a ‘dollar sign’ synatax:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"> <span class="nx">$</span><span class="p">(</span> <span class="nb">document</span> <span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s2">"Hello World!"</span> <span class="p">);</span>
+ <span class="p">});</span>
+ </code></pre></figure>
+
+<p>I had come across the world of jquery, which allowed for a lot cleaner syntax for selecting elements outside of plain javascript and a tad bit easier DOM manipulation, AJAX
+ calls were very simple. 
+ I instantly fell in love because front end
+ development wasn’t my niche, but it made it very easy for me to hack up quick things I had to do such as remove an entire div, or highlight a span of text. It was front
+ end development for “dummies”. I actually used that for quite a while, but things started to get out of hand as JQuery code was developed by pieces.</p>
+
+<p>## React Framework
+ —-
+ As the JQuery code was piling up, I had more of a need for the sense of structure on in my front end. So I started looking to JS frameworks. I read about angular, React, Ember, and backbone. 
+ I started with angular since it seemed the closest to what I knew; plain javascript. It’s what I felt comfortable with, however, without reinventing some of the wheel,
+ I had to make angular work how I wanted. The 2-way data-binding is great, but a little difficult to understand at first, but once yuou get the hang of things it is quite easy.
+ But it still wasn’t enough structure for some reason.</p>
+
+<p>I was very apprehensive about <a href="https://facebook.github.io/react/">React</a>, mainly for the fact that it was created by the people at facebook. I thought maybe the people who worked on JS frameworks would
+ better understand how a UI would/should work. I was very wrong with this assumption. It was the first time I saw “Component” based javascript development. I have worked
+ a little with extjs, but since it’s propietary, it was out for my personal projects since it seems geared more toward medium/enterprise business scale. However, I admired the way
+ extjs carried itself as far as gearing itself towards pre built components.</p>
+
+<p>After doing some research I finally decided to buy a <a href="https://www.udemy.com/react-redux">Udemy</a> class on React(all credit goes to Stephen Grider) and dive right in. I immediately fell in love with it. I found the framework to be structured,
+ yet complete enough to not have to reinvent anything, especially with ES6. React is Component based, and it makes things simpler when it comes to constructing UI’s.</p>
+
+<p>For example:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"> <span class="kr">class</span> <span class="nx">SearchBar</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+   <span class="nx">render</span><span class="p">(){</span>
+     <span class="k">return</span><span class="p">(</span>
+       <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+         <span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="nx">className</span><span class="o">=</span><span class="s2">"form-control"</span> <span class="o">/&gt;</span>
+       <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>     <span class="p">);</span>
+   <span class="p">}</span>
+ <span class="p">}</span>
+ 
+ <span class="kr">export</span> <span class="k">default</span> <span class="nx">SearchBar</span><span class="p">;</span>
+ </code></pre></figure>
+
+<p>Which could then be used like this:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"> <span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">App</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+   <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+     <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+   <span class="p">}</span>
+ 
+ 
+   <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+ 
+ 
+     <span class="k">return</span> <span class="p">(</span>
+       <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+           <span class="o">&lt;</span><span class="nx">Sidebar</span> <span class="o">/&gt;</span>
+       <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>     <span class="p">);</span>
+   <span class="p">}</span>
+ <span class="p">}</span>
+ 
+ </code></pre></figure>
+
+<p>The search bar, can then be imported into any other component. React will force you to think of the UI as a hierarchy of components.</p>
+
+<p>## Conclusions
+ —
+ Overall, It is a great framework. However, react is just the “view”.  Out of the box it doesn’t do too much outside of rendering components and plain javascript, but 
+ there are also a lot of things that play nice with react. One of the larger ones is <a href="http://redux.js.org/">Redux</a>. Redux works well with react once you understand how redux itself works.
+ Another one to note is react-router, which handles the URI changes and directs the URI to render certain components. React router provides a way to configure routes to URI changes. This is ideal for SPA’s</p>
+
+<p>References: 
+ Check out
+ <a href="https://facebook.github.io/react/">ReactJS</a>
+ <a href="https://www.udemy.com/react-redux">Udemy</a>
+ <a href="http://redux.js.org/">Redux</a></p>
+

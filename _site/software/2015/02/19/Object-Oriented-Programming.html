@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ryan Kazokas - Object Oriented Software Development</title>
+  <meta name="author" content="Ryan Kazokas" />
+  <meta name="description" content="The blog of Ryan Kazokas" />
+  <link rel="canonical" href="https://ryankazokas.github.io/software/2015/02/19/Object-Oriented-Programming.html" />
+
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Ryan Kazokas" href="https://ryankazokas.github.io/atom.xml" />
+
+  <link rel="stylesheet" href="/assets/css/all.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-k2/8zcNbxVIh5mnQ52A0r3a6jAgMGxFJFE2707UxGCk= sha512-ZV9KawG2Legkwp3nAlxLIVFudTauWuBpC10uEafMHYL0Sarrz5A7G79kXh5+5+woxQ5HM559XX2UZjMJ36Wplg==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="col-md-2">
+      <nav>
+  <!--<a href="/">
+    
+    <img src="/ryankazokas.jpg" id="logo" style="max-width:70%;" alt="Ryan Kazokas | Software Developer"/>
+    
+  </a>-->
+  <h2><a href="/about">Ryan Kazokas</a></h2>
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="/">Blog Posts</a>
+                </li>
+                <li>
+                    <a href="/projects">Projects</a>
+                </li>
+                <li>
+                    <a href="/about">About</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+  <div id="social">
+    Follow me:
+<div id="stalker">
+  
+  <a title="ryankazokas on Github" href="https://github.com/ryankazokas">
+    <i class="fa fa-github-square"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+  <a title="Ryan Kazokas on Stack Overflow" href="http://stackoverflow.com/users/2850171">
+    <i class="fa fa-stack-overflow"></i>
+  </a>
+  
+
+  
+  <a title="ryankazokas on Twitter" href="https://twitter.com/ryankazokas">
+    <i class="fa fa-twitter-square"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+  <a title="Ryan Kazokas on LinkedIn" href="https://www.linkedin.com/in/ryankazokas">
+    <i class="fa fa-linkedin-square"></i>
+  </a>
+  
+
+  
+  <a title="Ryan Kazokas on Google Plus" href="https://plus.google.com/+RyanKazokas">
+    <i class="fa fa-google-plus-square"></i>
+  </a>
+  
+
+  
+
+  
+  <a title="Atom feed" id="atom" href="/atom.xml">
+    <i class="fa fa-rss-square"></i>
+  </a>
+  
+</div>
+
+  </div>
+</nav>
+
+    </div>
+
+    <div class="col-md-10">
+      <p class="meta">
+  February 19, 2015
+  <a href="/">
+    <i class="home fa fa-home"></i>
+  </a>
+</p>
+
+<h1 class="title">Object Oriented Software Development</h1>
+
+<div id="post">
+  <p>Understanding software can be the largest difficulty in our profession, but if code is written well, whoever is working on it should have an easy time expanding upon the foundation.  Procedural style code can look daunting if it is long, and can be very hard to decipher what is going on in the code.  In short spurts procedural code is a lot easier to understand because of the linear pattern of implementations.  Your code says do this, and the code does it.  This is great for scripts that only have a few lines, but what about long pieces of code?</p>
+<p>Once your code base starts becoming more complex, procedural style coding can start to become a pain. Object oriented programming takes real world objects how humans think of them(ie. a ball, a bike, a car) and turns them into software objects. Some think that may add complexity to their code, but in reality, in a large project this might save your life! Object programming takes actions (how humans relate them to an object) and place their functionality within those objects. For example a ball may have a diameter characteristic, and a bounce method. </p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Pizza</span><span class="o">{</span>
+	<span class="kd">private</span> <span class="n">amountPepperonni</span>	<span class="c1">//amount of slices of pepperonni per pizza.</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="o">(){</span>
+		<span class="c1">//eat the pizza</span>
+	<span class="o">}</span>
+	
+<span class="o">}</span><span class="c1">//Pizza</span>
+
+<span class="kd">class</span> <span class="nc">Ball</span><span class="o">{</span>
+	<span class="kd">private</span> <span class="kt">double</span> <span class="n">diameter</span><span class="o">;</span>	<span class="c1">//used to measure diameter of the ball.</span>
+	
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">bounce</span><span class="o">(){</span>
+		<span class="c1">//bounce the ball</span>
+	<span class="o">}</span>
+
+<span class="o">}</span><span class="c1">//Ball</span>
+
+<span class="kd">class</span> <span class="nc">Application</span><span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+		<span class="n">Ball</span> <span class="n">ball</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Ball</span><span class="o">();</span>
+		<span class="n">Pizza</span> <span class="n">pizza</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pizza</span><span class="o">();</span>
+		<span class="n">ball</span><span class="o">.</span><span class="na">bounce</span><span class="o">();</span>
+		<span class="n">pizza</span><span class="o">.</span><span class="na">eat</span><span class="o">();</span>
+		
+	<span class="o">}</span>
+<span class="o">}</span><span class="c1">//Application</span></code></pre></figure>
+
+<p>In a large procedural code base, you see the bounce() and eat() functions called, what does it do, and where do you find it. If you are the second person working on the project you might have a hard time with finding it, but now you can easily see that the ball is the one doing a bounce and pizza is being eaten. It can even be assumed that the ball is the one calling the function bounce and pizza calling eat, due to the nature of the activity being called. This naive example is a good way to think of things even though they might not be this explicit in a real world problem.</p>
+  
+</div>
+
+<div id="related">
+  <h3>Related Posts</h3>
+  <ul class="posts">
+    
+    <li>
+      <span>18 Jan 2017 &raquo;</span> <a href="/meta/2017/01/18/why-am-i-blogging.html">Why am I blogging?</a>
+    </li>
+    
+    <li>
+      <span>01 Dec 2016 &raquo;</span> <a href="/2016/12/01/why-dependency-inversion.html">Why Use Dependency Inversion?</a>
+    </li>
+    
+    <li>
+      <span>03 Nov 2016 &raquo;</span> <a href="/2016/11/03/why-a-master-s-degree.html">Reflecting on a Software Engineering Master's Degree</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      <div class="footer">
+        <div class="disclaimer">
+  
+  <p>
+    The postings on this site are my own and don't necessarily represent my 
+    employer’s positions, strategies or opinions.
+  </p>
+  
+
+  <p>
+    © Ryan Kazokas, 2016 &mdash; built with <a href="http://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/swanson/lagom">Lagom theme</a>
+  </p>
+</div>
+      </div>
+    </div>
+  </div>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-82388702-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>

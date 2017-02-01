@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Object Oriented Software Development
+tags : [Software, tutorial]
 categories:
 - Software
 ---
@@ -12,16 +13,16 @@ categories:
 
 class Pizza{
 	private amountPepperonni	//amount of slices of pepperonni per pizza.
-	
+
 	public void eat(){
 		//eat the pizza
 	}
-	
+
 }//Pizza
 
 class Ball{
 	private double diameter;	//used to measure diameter of the ball.
-	
+
 	public void bounce(){
 		//bounce the ball
 	}
@@ -34,7 +35,7 @@ class Application{
 		Pizza pizza = new Pizza();
 		ball.bounce();
 		pizza.eat();
-		
+
 	}
 }//Application
 

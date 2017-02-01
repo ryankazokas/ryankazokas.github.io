@@ -1,0 +1,39 @@
+[
+
+{"date": "Wed, 18 Jan 2017 05:16:00 +0000",
+"categories": ["meta"],
+"tags": ["blog"],
+"title": "Why am I blogging?",
+"url": "/meta/2017/01/18/why-am-i-blogging.html"},
+
+{"date": "Thu, 01 Dec 2016 00:00:00 +0000",
+"categories": [],
+"tags": [],
+"title": "Why Use Dependency Inversion?",
+"url": "/2016/12/01/why-dependency-inversion.html"},
+
+{"date": "Thu, 03 Nov 2016 21:31:00 +0000",
+"categories": [],
+"tags": [],
+"title": "Reflecting on a Software Engineering Master's Degree",
+"url": "/2016/11/03/why-a-master-s-degree.html"},
+
+{"date": "Sat, 08 Oct 2016 00:00:00 +0000",
+"categories": [],
+"tags": [],
+"title": "The Journey Into React Js",
+"url": "/2016/10/08/The-Journey-Into-React-JS.html"},
+
+{"date": "Thu, 19 Feb 2015 00:00:00 +0000",
+"categories": ["Software"],
+"tags": [],
+"title": "Object Oriented Software Development",
+"url": "/software/2015/02/19/Object-Oriented-Programming.html"},
+
+{"date": "Sun, 15 Feb 2015 00:00:00 +0000",
+"categories": ["Software Patterns"],
+"tags": ["intro","beginner","jekyll","tutorial"],
+"title": "Programming to an Interface",
+"url": "/software%20patterns/2015/02/15/Program-to-an-interface.html"},
+
+false]

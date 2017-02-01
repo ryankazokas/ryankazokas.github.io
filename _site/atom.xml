@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>The blog of Ryan Kazokas</title>
+ <link href="https://ryankazokas.github.io/atom.xml" rel="self"/>
+ <link href="https://ryankazokas.github.io"/>
+ <updated>2017-02-01T05:46:07+00:00</updated>
+ <id>https://ryankazokas.github.io</id>
+ <author>
+   <name>Ryan Kazokas</name>
+   <email>ryan.kazokas@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Why am I blogging?</title>
+   <link href="https://ryankazokas.github.io/meta/2017/01/18/why-am-i-blogging.html"/>
+   <updated>2017-01-18T05:16:00+00:00</updated>
+   <id>https://ryankazokas.github.io/meta/2017/01/18/why-am-i-blogging</id>
+   <content type="html">&lt;p&gt;For anyone that knows me, knows I have a technical background. I have very little writing experience outside of a few poorly written papers in college and some technical requirements’ documents. One of the main reasons I decided to take up this hobby is not only to improve my writing skill but to share my experiences, thoughts, and decisions from my point of view, in an interesting manner.&lt;/p&gt;
+
+&lt;p&gt;As I write more blog posts, I am learning that writing is expressing my thoughts clearly. It is definitely a challenge for someone that doesn’t write a lot. So in this endeavor I will attempt to write posts that are clear and convey a sense of meaning. The end goal will not be to please others, but to please myself with things that interest me. However, hopefully  I can interest and teach people a little about myself and how I interpret topics.&lt;/p&gt;
+
+&lt;p&gt;The inspiration came from an article I read from codinghorror’s website:
+&lt;a href=&quot;https://blog.codinghorror.com/fear-of-writing/&quot;&gt;
+Fear of writing&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;“CodingHorror” is run by one of the most influential entrepreneurs in the software community: Jeff Atwood. Atwood is the creator of Stack Overflow and Discord products, and was also my introduction into the blogging world.&lt;/p&gt;
+
+&lt;p&gt;Thanks to anyone who may find enjoyment in reading my posts in the future. Please just keep in the back of your mind, that I am slowly learning this new craft!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Why Use Dependency Inversion?</title>
+   <link href="https://ryankazokas.github.io/2016/12/01/why-dependency-inversion.html"/>
+   <updated>2016-12-01T00:00:00+00:00</updated>
+   <id>https://ryankazokas.github.io/2016/12/01/why-dependency-inversion</id>
+   <content type="html">&lt;h2 id=&quot;dependency-inversion-principle&quot;&gt;Dependency Inversion Principle&lt;/h2&gt;
+
+&lt;p&gt;The design step is integral to the development of well-developed software. Without having a good design plan, down the line software can become very coupled, rigid, and very hard to expand. Nobody wants to be the person working on a system where &lt;a href=&quot;https://sourcemaking.com/refactoring/smells/change-preventers&quot;&gt;change preventers&lt;/a&gt; run rampant and changing/adding a small feature can become a nightmare very quickly.  However, we all have been guilty of jumping the gun where we jump right into coding(myself included).&lt;/p&gt;
+
+&lt;p&gt;Now that we established that good design is important, what should be considered when planning software? The &lt;a href=&quot;https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)&quot;&gt;SOLID design principles&lt;/a&gt; are a great foundation for designing maintainable/extendable software. The D in solid, stands for Dependency Inversion Principle. This is also known as inversion of control, IOC, or the most popular, dependency injection. The principle relies primarily on the notion:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Depend upon Abstractions. Do not depend upon concretions&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This means that, if we use abstractions in our code base, we should depend on those, rather than the implementations of that class, so that you can write a new implementation and just plug it in where you need it. High level policy, shouldn’t depend on low level detail and vice versa. They should both depend on abstractions.  Understanding this, helped me to know when to create abstractions as well as designing loosely coupled dependency.&lt;/p&gt;
+
+&lt;p&gt;The example below illustrates the dependency inversion principle in practice:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/forestryio/images/DI_user_service.jpg&quot; alt=&quot;/forestryio/images/DI_user_service.jpg&quot; style=&quot;float: none;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The client code depends on the high level abstraction UserService interface. The calling code can use whatever interface implements the UserService.  The same goes for the UserServiceImpl class depending upon the UserDao abstraction. What benefits does this provide? The calling code doesn’t need to be changed since it depends on the implementer of the abstraction and not on the concretion. Down the road, this helps against anti-patterns such as change preventers because we would only have to change the current implementation or create a new one. An example would be if we had to write a new UserDao for a different DBMS.(Say you store some data in a relational database, and you store other data in a NoSQL database)&lt;/p&gt;
+
+&lt;h2 id=&quot;types-of-dependency-injection&quot;&gt;Types of Dependency Injection&lt;/h2&gt;
+
+&lt;p&gt;There are two main types of ways to use the dependency inject: setter injection or constructor injection.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Setter Injection:&lt;/strong&gt; The dependency is provided to the setter of the dependent implementation.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UserService&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//use the setter when setting the dependency&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UserService&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    	&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;userService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+    	&lt;span class=&quot;n&quot;&gt;Client&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    	&lt;span class=&quot;n&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UserServiceImpl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Benefits:&lt;/strong&gt; Setters can be called at any time. This provides a flexible solution if you want to be able to change the implementation based on conditional statements. This is good for optional dependencies that may not need to be defined.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disadvantages:&lt;/strong&gt; Since the setter can be called at anytime, it is harder to differentiate if the dependency was changed during the life-cycle of the object.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Constructor Injection&lt;/strong&gt;: The dependency is provided to the setter of the dependent implementation.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UserService&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//use the constructor when setting the dependency&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UserService&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    	&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;userService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+    	&lt;span class=&quot;n&quot;&gt;Client&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;client&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Client&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UserServiceImpl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Benefits&lt;/strong&gt;: Since the dependency is set at the creation of the object, you only have to worry about defining it once, and it will not change.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disadvantages&lt;/strong&gt;: The dependency is forced during the creation of the object and the object can’t work without providing an implementation for the dependency.&lt;/p&gt;
+
+&lt;h2 id=&quot;di-frameworks&quot;&gt;DI Frameworks&lt;/h2&gt;
+
+&lt;p&gt;Using frameworks can make it a little easier to abide by the dependency inversion principle. In past experiences I have used spring and guice. Spring loads all of your dependencies into the “ApplicationContext”. This makes it so that you don’t have to instantiate any of your dependencies in calling code, but in configuration files or classes. Here is a list of a few other DI frameworks:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://projects.spring.io/spring-framework/&quot;&gt;Spring&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/google/guice/wiki/Motivation&quot;&gt;Guice&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://hk2.java.net/2.5.0-b30/&quot;&gt;HK2&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://springframework.net/&quot;&gt;Spring.NET&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.castleproject.org/projects/windsor/&quot;&gt;CastleWindsor&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://springpython.webfactional.com/&quot;&gt;Spring Python&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Reflecting on a Software Engineering Master's Degree</title>
+   <link href="https://ryankazokas.github.io/2016/11/03/why-a-master-s-degree.html"/>
+   <updated>2016-11-03T21:31:00+00:00</updated>
+   <id>https://ryankazokas.github.io/2016/11/03/why-a-master-s-degree</id>
+   <content type="html">&lt;p&gt;&lt;strong&gt;The Decision&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The age old question of whether or not one should advance on to graduate school and if it is worth the time/money will always be subjective. It depends on the context of the situation that the person is in. There are a slew of questions to ask oneself when considering graduate school.  Working a job as a front end developer, doing mostly graphic design, I found myself at a job that wasn’t fulfilling my aspirations of becoming a full stack developer.  My decision to go  to graduate school stemmed from my desire to be more technically knowledgeable. The decision came about when talking to my wife(then girlfriend at the time) at a small diner over breakfast. Discussing issues at my current job and how I wasn’t 100% happy, I mentioned that I was considering it, and she persuaded me that it would open me up for other opportunities. I couldn’t thank her for being more right. My mind was set, I was going to go for my masters degree in software engineering.&lt;/p&gt;
+
+&lt;p&gt;My undergraduate degree was a Bachelors of Science in Information Systems and Technology. For people outside of the technology community, IST is more of on the side of using/developing technology for businesses than it is “engineering”. Applying for a software engineering masters degree with a background like mine was very intimidating. Most things I knew about engineering was self taught for things that I needed to know for personal projects outside of school. One thing I knew applying to the program was that I was going from undergraduate Penn State to graduate Penn State, so the people reviewing my application would know the exact curriculum that I had in undergrad, so I took comfort in that thought.  Low and behold, after a few weeks of anticipation I was notified of my acceptance into the program.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The First Day&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The feeling of getting into a graduate school program was thrilling.   The sense of accomplishment was surreal, however it was time to get serious. The first day was upon us, and everyone attending as a “freshman” was part of a cohort. (cohort 12 to be exact) This meant that every single person you start with, you will finish the program with, which in my opinion is a great idea, especially in the online environment. There was a required preliminary course that everyone in the cohort had to attend. We were introduced to the other students, about 30 of us, just engaging in conversion on discussion boards of where we live, what we do, what were interested in, etc. With the fear that this would be like undergrad where we had to spend the first day of each course getting to know each other and exchanging information, I was very apprehensive in my expectations for the rest of the program, however due to us being a part of the cohort this was not necessary. It was just in the “ground breaking” part of the program.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What I learned&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;When our actual classes started up, we jumped right into it. Requirements engineering was my first course. Needless to say, it didn’t sound very interesting. Why do I have to know requirements? The business owners should know that. This was my first lesson. User stories, scrum, and other methodologies were taught in the course. It wasn’t the technical lessons that caused me to have a revelation, but the consideration for any and all parts of software development. It showed me how to pay attention to detail. I realized how much forethought had to go into software outside of just coding. Throughout the program I learned about various software processes, and how they are applicable to industry. The most important thing I took from it was the attention to detail and the appreciation for design, architecting, refactoring, and constructing systems.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Worth It?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There will always be that argument that industry experience will trump academia. However, when I received the offer from my current job I absolutely think that showed my current employer that I was willing to learn and go the extra mile to know what I need to know. Over time I think the degree will lose some of it’s value just because of the fact that industry experience is more important as you climb the ladder.(No matter what position/field you are in). As a personal achievement, it was 100% worth it. Having that foundation of knowledge to base my actual work on is fantastic. It helps me if not on an daily basis, a weekly basis. I am always using and applying what I learned from the program in my day to day work.  Overall, even with the stress that comes with working 8 hours, driving 2 hours every day, and coming home to do 3 hours of homework every night, I would do it again. I met some great knowledgeable people and made lifetime connections.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sources:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.worldcampus.psu.edu/degrees-and-certificates/software-engineering-masters/overview&quot;&gt;http://www.worldcampus.psu.edu/degrees-and-certificates/software-engineering-masters/overview&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://wilkesbarre.psu.edu/academics/ist&quot;&gt;http://wilkesbarre.psu.edu/academics/ist&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>The Journey Into React Js</title>
+   <link href="https://ryankazokas.github.io/2016/10/08/The-Journey-Into-React-JS.html"/>
+   <updated>2016-10-08T00:00:00+00:00</updated>
+   <id>https://ryankazokas.github.io/2016/10/08/The-Journey-Into-React-JS</id>
+   <content type="html">&lt;hr /&gt;
+&lt;p&gt;-layout: post
+ -title:  “The Journey into React JS”
+ -date:   2016-10-08 23:16:24 -0400
+ -categories: javascript react
+ —-
+ -
+ -## Early Javascript
+ —-
+ Like most software developers, front end engineering is lacking in academia,(whether it be lack of knowledge by professors or by universities afraid to add it as part of the cirriculum)
+ so my professional knowledge of javascript was limited to job experience from an internship. A goal of mine
+ was to get a grasp on vanilla javascript. So i had bought a book and started hacking away at and understanding javascript. Doing things like this was great for a while.
+ It satisfied my need to make asynchronous actions, hide/show text, etc. However a few years ago I had discovered a ‘dollar sign’ synatax:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello World!&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+ &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I had come across the world of jquery, which allowed for a lot cleaner syntax for selecting elements outside of plain javascript and a tad bit easier DOM manipulation, AJAX
+ calls were very simple. 
+ I instantly fell in love because front end
+ development wasn’t my niche, but it made it very easy for me to hack up quick things I had to do such as remove an entire div, or highlight a span of text. It was front
+ end development for “dummies”. I actually used that for quite a while, but things started to get out of hand as JQuery code was developed by pieces.&lt;/p&gt;
+
+&lt;p&gt;## React Framework
+ —-
+ As the JQuery code was piling up, I had more of a need for the sense of structure on in my front end. So I started looking to JS frameworks. I read about angular, React, Ember, and backbone. 
+ I started with angular since it seemed the closest to what I knew; plain javascript. It’s what I felt comfortable with, however, without reinventing some of the wheel,
+ I had to make angular work how I wanted. The 2-way data-binding is great, but a little difficult to understand at first, but once yuou get the hang of things it is quite easy.
+ But it still wasn’t enough structure for some reason.&lt;/p&gt;
+
+&lt;p&gt;I was very apprehensive about &lt;a href=&quot;https://facebook.github.io/react/&quot;&gt;React&lt;/a&gt;, mainly for the fact that it was created by the people at facebook. I thought maybe the people who worked on JS frameworks would
+ better understand how a UI would/should work. I was very wrong with this assumption. It was the first time I saw “Component” based javascript development. I have worked
+ a little with extjs, but since it’s propietary, it was out for my personal projects since it seems geared more toward medium/enterprise business scale. However, I admired the way
+ extjs carried itself as far as gearing itself towards pre built components.&lt;/p&gt;
+
+&lt;p&gt;After doing some research I finally decided to buy a &lt;a href=&quot;https://www.udemy.com/react-redux&quot;&gt;Udemy&lt;/a&gt; class on React(all credit goes to Stephen Grider) and dive right in. I immediately fell in love with it. I found the framework to be structured,
+ yet complete enough to not have to reinvent anything, especially with ES6. React is Component based, and it makes things simpler when it comes to constructing UI’s.&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt; &lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SearchBar&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+       &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;form-control&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+       &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+ &lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SearchBar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Which could then be used like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt; &lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;kr&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;props&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+ 
+   &lt;span class=&quot;nx&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+ 
+ 
+     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+       &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+           &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Sidebar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+       &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+ &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The search bar, can then be imported into any other component. React will force you to think of the UI as a hierarchy of components.&lt;/p&gt;
+
+&lt;p&gt;## Conclusions
+ —
+ Overall, It is a great framework. However, react is just the “view”.  Out of the box it doesn’t do too much outside of rendering components and plain javascript, but 
+ there are also a lot of things that play nice with react. One of the larger ones is &lt;a href=&quot;http://redux.js.org/&quot;&gt;Redux&lt;/a&gt;. Redux works well with react once you understand how redux itself works.
+ Another one to note is react-router, which handles the URI changes and directs the URI to render certain components. React router provides a way to configure routes to URI changes. This is ideal for SPA’s&lt;/p&gt;
+
+&lt;p&gt;References: 
+ Check out
+ &lt;a href=&quot;https://facebook.github.io/react/&quot;&gt;ReactJS&lt;/a&gt;
+ &lt;a href=&quot;https://www.udemy.com/react-redux&quot;&gt;Udemy&lt;/a&gt;
+ &lt;a href=&quot;http://redux.js.org/&quot;&gt;Redux&lt;/a&gt;&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Object Oriented Software Development</title>
+   <link href="https://ryankazokas.github.io/software/2015/02/19/Object-Oriented-Programming.html"/>
+   <updated>2015-02-19T00:00:00+00:00</updated>
+   <id>https://ryankazokas.github.io/software/2015/02/19/Object-Oriented-Programming</id>
+   <content type="html">&lt;p&gt;Understanding software can be the largest difficulty in our profession, but if code is written well, whoever is working on it should have an easy time expanding upon the foundation.  Procedural style code can look daunting if it is long, and can be very hard to decipher what is going on in the code.  In short spurts procedural code is a lot easier to understand because of the linear pattern of implementations.  Your code says do this, and the code does it.  This is great for scripts that only have a few lines, but what about long pieces of code?&lt;/p&gt;
+&lt;p&gt;Once your code base starts becoming more complex, procedural style coding can start to become a pain. Object oriented programming takes real world objects how humans think of them(ie. a ball, a bike, a car) and turns them into software objects. Some think that may add complexity to their code, but in reality, in a large project this might save your life! Object programming takes actions (how humans relate them to an object) and place their functionality within those objects. For example a ball may have a diameter characteristic, and a bounce method. &lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Pizza&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amountPepperonni&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;//amount of slices of pepperonni per pizza.&lt;/span&gt;
+	
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;eat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+		&lt;span class=&quot;c1&quot;&gt;//eat the pizza&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//Pizza&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Ball&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;diameter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;//used to measure diameter of the ball.&lt;/span&gt;
+	
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bounce&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+		&lt;span class=&quot;c1&quot;&gt;//bounce the ball&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//Ball&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;Ball&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ball&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ball&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;Pizza&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pizza&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Pizza&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;ball&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;bounce&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;pizza&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;eat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//Application&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In a large procedural code base, you see the bounce() and eat() functions called, what does it do, and where do you find it. If you are the second person working on the project you might have a hard time with finding it, but now you can easily see that the ball is the one doing a bounce and pizza is being eaten. It can even be assumed that the ball is the one calling the function bounce and pizza calling eat, due to the nature of the activity being called. This naive example is a good way to think of things even though they might not be this explicit in a real world problem.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Programming to an Interface</title>
+   <link href="https://ryankazokas.github.io/software%20patterns/2015/02/15/Program-to-an-interface.html"/>
+   <updated>2015-02-15T00:00:00+00:00</updated>
+   <id>https://ryankazokas.github.io/software%20patterns/2015/02/15/Program-to-an-interface</id>
+   <content type="html">&lt;blockquote&gt;
+  &lt;p&gt;Program to an interface, not an implementation!
+- A wise man.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;What does it mean to program to an interface? First lets define what an interface is used for.
+An interface is a binding contract between a classes and that interface.  Similar class can share an interface if they share the same functionality of some kind. They also don’t provide any implementation details, they let the class decide what it will do with the set of functions.  This is useful for when a function accepts a type of interface as an argument, it won’t care where the implementation comes from.  This means that any class that implements that interface can be passed into that function. &lt;br /&gt;For example:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;Interface&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IEatable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;eat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Pizza&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IEatable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;eat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+		&lt;span class=&quot;c1&quot;&gt;//DO Pizza eating stuff.&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Sandwich&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IEatable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;eat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+		&lt;span class=&quot;c1&quot;&gt;//DO Sandwich eating stuff.&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Both pizza and sandwich implement the eatable interface.  This interface encapsulates common functionality between the two classes. So why would this be good? It gives you the ability to say you want a certain functionality, but you do not care where it comes from.  Consider the main application:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+		&lt;span class=&quot;no&quot;&gt;IEatable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pizza&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Pizza&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;no&quot;&gt;IEatable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sandwich&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Sandwich&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+		&lt;span class=&quot;no&quot;&gt;IEatable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foodList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pizza&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sandwich&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;eatDinner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foodlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eatDinner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;IEatable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foodList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+
+		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;IEatable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;food&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foodList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;food&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;eat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The eatDinnerFunction doesn’t care what implementation type of IEatable its getting and whatever type of IEatable is passed in can  execute its eat function for each type of IEatable.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>
