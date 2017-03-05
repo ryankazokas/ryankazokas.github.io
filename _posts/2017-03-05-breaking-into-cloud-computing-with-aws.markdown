@@ -57,7 +57,7 @@ Overall, AWS provides a great platform to create production-ready software for d
 
 Links:
 
-https://www.000webhost.com/
-http://www.hostgator.com/
-https://www.bluehost.com/
-https://www.dreamhost.com/
+<a target="_blank" href="https://www.000webhost.com/">000webhost</a>
+<a target="_blank" href="http://www.hostgator.com/">Hostgator</a>
+<a target="_blank" href="https://www.bluehost.com/">Bluehost</a>
+<a target="_blank" href="https://www.dreamhost.com/">Dreamhost</a>
