@@ -7,15 +7,15 @@ tags:
 - amazon
 ---
 
-During my sophomore year of college, I found the need to have a site hosted for one of the projects that I was working on. Just a simple apache web server was needed.(I don't remember the project exactly, but it was something along the lines of an e-commerce web page that sold something. Since I was in college at the time, I was looking for an affordable solution, preferably free since it was just a small school project. I had stumbled upon <a href="https://www.000webhost.com/">000webhost</a>, which provided exactly what I needed. It worked and I used it throughout the rest of my undergraduate year for the primary reason of it 'just working'.
+During my sophomore year of college, I found the need to have a site hosted for one of the projects that I was working on. Just a simple apache web server was needed.(I don't remember the project exactly, but it was something along the lines of an e-commerce web page that sold something. Since I was in college at the time, I was looking for an affordable solution, preferably free since it was just a small school project. I had stumbled upon <a target="_blank" href="https://www.000webhost.com/">000webhost</a>, which provided exactly what I needed. It worked and I used it throughout the rest of my undergraduate year for the primary reason of it 'just working'.
 
 Now since they don't really cover how the industry actually works, this sort of thing is put on the back burner for students to learn themselves. So learning how to properly set up a hosted website was for me to figure out and the school to never know if I was successful. 
 
 Finally, I was working on a side project that actually needed a more reliable source of truth. It was a web app front end admin tool that I was working on that had an API that communicated with our mobile application client. 000webhost worked fine for the school stuff, but I wanted a paid solution to have the support if I needed it. Not knowing the app was ever even going to be used or successful, I didn't mind and still evaluated my options. After researching it came down to three options
 
-* [Hostgator](http://www.hostgator.com/)
-* [Dreamhost](https://www.bluehost.com/)
-* [Bluehost](https://www.dreamhost.com/)
+* <a target="_blank" href="http://www.hostgator.com/">Hostgator</a>
+* <a target="_blank" href="https://www.bluehost.com/">Dreamhost</a>
+* <a target="_blank" href="https://www.dreamhost.com/">Bluehost</a>
 
 It could have been naivety or fear of trying something too complex, but these three options I felt wouldn't have been too far over my skill level.  I was accustomed to the CPanel environment which all of these sites provided. I imagine that all of these sites were just hardware with a CPanel front end.  I wasn't as comfortable to SSH into a server and mess around that way. Anyway, the decision was to go with Bluehost simply because at the time there were a tiny bit of cost savings(maybe a dollar or two/month over the other two)
 
