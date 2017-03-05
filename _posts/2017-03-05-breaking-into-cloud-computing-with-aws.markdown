@@ -7,7 +7,7 @@ tags:
 - amazon
 ---
 
-During my sophomore year of college, I found the need to have a site hosted for one of the projects that I was working on. Just a simple apache web server was needed.(I don't remember the project exactly, but it was something along the lines of an e-commerce web page that sold something. Since I was in college at the time, I was looking for an affordable solution, preferably free since it was just a small school project. I had stumbled upon <a target="_blank" href="https://www.000webhost.com/">000webhost</a>, which provided exactly what I needed. It worked and I used it throughout the rest of my undergraduate year for the primary reason of it 'just working'.
+During my sophomore year of college, I found the need to have a site hosted for one of the projects that I was working on. Just a simple apache web server was needed.(I don't remember the project exactly, but it was something along the lines of an e-commerce web page that sold something). Since I was in college at the time, I was looking for an affordable solution, preferably free since it was just a small school project. I had stumbled upon <a target="_blank" href="https://www.000webhost.com/">000webhost</a>, which provided exactly what I needed. It worked and I used it throughout the rest of my undergraduate year for the primary reason of it 'just working'.
 
 Now since they don't really cover how the industry actually works, this sort of thing is put on the back burner for students to learn themselves. So learning how to properly set up a hosted website was for me to figure out and the school to never know if I was successful. 
 
