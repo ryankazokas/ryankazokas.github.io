@@ -23,6 +23,8 @@ This worked for some time. I had co-founded a small company in the mean time tha
 
 As our side projects got more serious, there was more of a need to have that reliability and granular control of our stuff. Our applications weren't complex but the need for stability came with people actually using our software and noticing things like when it was slow, when it was down, etc. More research had to be done on what we could do to make things better for our apps.  AWS stood out to us as an up and comer in the cloud industry. There was nobody else really like it at the time. I believe google cloud was very immature at the time, so we decided against that platform. The most appealing part to amazon was the 12 months free. It's actually deceiving if you don't read carefully because it's 12 hours running time. So if you have two EC2 instances it will drain that in half the time, so just an FYI for anyone thinking about trying amazon. With our mindset that we could at least try amazon and evaluate the performance at the very least, we started spinning up servers that mocked our current environment. Even with micro-instances, we were able to see performance over the Bluehost environment.
 
+## How we use it
+
 I'm not going to get into specifics on what we use for AWS environment, because if I told you, then I would have to kill you, but I will give a quick overview of what services we use and how we use them in no particular order:
 
 **EC2(Elastic Compute)** - This is amazon's virtual server environments. They provide environments with different operating systems you can choose including, windows and different flavors of Linux. We use this for our web servers that need to be up all the time. Crucial for us since we provide we applications and solutions.
@@ -44,6 +46,8 @@ I'm not going to get into specifics on what we use for AWS environment, because 
 **API Gateway** - A gateway for HTTP request to be routed as a proxy to another HTTP endpoint or lambda function. We are setting up new serverless API's for an application that uses this in conjunction with triggers that fire lambda functions.
 
 **Lambda** - FAAS.(Functions as a service) This is the newest piece of technology we are using. You can select from a small list of runtimes(NodeJS, JVM, python at the time of this writing) and write small functions that are executed based on some trigger
+
+## Disadvantages
 
 Although with those advantages we saw some disadvantages. One of the largest disadvantages was cost. Unfortunately, we did have to pay a little more to get the kind of granular control that AWS provides, but it was something we wanted.  It was worth it for us to have the control, elastic scaling, and reliability of the AWS platform.
 
